@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+     >
+    
+<TextView 
+    android:id="@+id/itemj"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="书名"
+    android:textColor="@android:color/white"
+    android:layout_marginBottom="6dip"
+    android:layout_marginTop="6dip"
+    android:textSize="20dip"
+/>
+
+<TextView
+    android:id="@+id/booknum"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/itemp"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="7dip"
+    android:text="共有"
+     android:textColor="@android:color/white" />
+
+<TextView
+    android:id="@+id/borrownum"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/itemp"
+    android:layout_alignParentRight="true"
+    android:layout_alignTop="@+id/itemp"
+    android:layout_marginRight="7dip"
+    android:text="可借" 
+     android:textColor="@android:color/white"/>
+
+  <TextView
+      android:id="@+id/booknum1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/borrownum1"
+      android:layout_alignLeft="@+id/borrownum1"
+      android:text="馆藏复本： " 
+       android:textColor="@android:color/white"/>
+
+  <TextView
+      android:id="@+id/itemh"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_below="@+id/location"
+      android:text="出版" 
+       android:textColor="@android:color/white"/>
+
+  <TextView
+      android:id="@+id/itemp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_below="@+id/itemh"
+      android:text="作者" 
+       android:textColor="@android:color/white"/>
+
+  <TextView
+      android:id="@+id/borrownum1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBaseline="@+id/borrownum"
+      android:layout_alignBottom="@+id/borrownum"
+      android:layout_toLeftOf="@+id/borrownum"
+      android:text="可借复本： " 
+       android:textColor="@android:color/white"/>
+
+  <TextView
+      android:id="@+id/location"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_below="@+id/itemj"
+      android:text="大概 " 
+      android:textColor="@android:color/white"/>
+
+  <TextView
+      android:id="@+id/bookplace"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBaseline="@+id/location"
+      android:layout_alignBottom="@+id/location"
+      android:layout_alignLeft="@+id/booknum1"
+      android:text="具体"
+      android:textColor="@android:color/white"
+      android:layout_marginBottom="7dip" />
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@drawable/titlebackground"
+     >
+    
+    
+      <Button
+        android:id="@+id/backtologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/nullimage"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:text="@string/back"
+        android:textSize="30dp"
+        android:textColor="#fff"
+        android:typeface="sans"
+        />
+
+   
+    <TextView
+        android:id="@+id/basedatatitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="80dp"
+        android:gravity="left"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+</LinearLayout>

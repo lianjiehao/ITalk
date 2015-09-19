@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/firstrelativelayout"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#f7f7f7"
+    android:orientation="vertical" >
+
+   <include layout="@layout/titlebar_bookhelpe"/>
+    <RelativeLayout
+        android:id="@+id/fu_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/search_div"
+        android:layout_margin="17dp"
+        android:layout_marginTop="40dp"
+        android:padding="15dip"
+        android:textSize="2dip" >
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:src="@drawable/android1" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignTop="@+id/imageButton1"
+            android:layout_centerHorizontal="true"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:src="@drawable/android2" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/imageButton2"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:src="@drawable/android3" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignRight="@+id/imageButton1"
+            android:layout_below="@id/imageButton1"
+            android:layout_marginTop="50dp"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:src="@drawable/android4" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignRight="@+id/imageButton2"
+            android:layout_below="@id/imageButton2"
+            android:layout_marginTop="50dp"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:src="@drawable/android5" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignRight="@+id/imageButton3"
+            android:layout_below="@id/imageButton3"
+            android:layout_marginTop="50dp"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:src="@drawable/android6" />
+
+        <TextView
+            android:id="@+id/personal"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageButton1"
+            android:layout_alignRight="@+id/imageButton1"
+            android:layout_marginBottom="32dp"
+            android:layout_marginRight="14dp"
+            android:gravity="center_horizontal"
+            android:text="入馆需知"
+            android:textColor="@android:color/black"
+            android:textSize="10dip" />
+
+        <TextView
+            android:id="@+id/jieyue"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/advise"
+            android:layout_alignBottom="@+id/advise"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="借阅信息"
+            android:textColor="@android:color/black"
+            android:textSize="10dip" />
+
+        <TextView
+            android:id="@+id/advise"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/personal"
+            android:layout_alignBottom="@+id/personal"
+            android:layout_alignRight="@+id/imageButton3"
+            android:layout_marginRight="14dp"
+            android:gravity="center_horizontal"
+            android:text="意见反馈"
+            android:textColor="@android:color/black"
+            android:textSize="10dip" />
+
+        <TextView
+            android:id="@+id/shukanyishi"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/booklend"
+            android:layout_alignBottom="@+id/booklend"
+            android:layout_alignLeft="@+id/jieyue"
+            android:gravity="center_horizontal"
+            android:text="书刊遗失"
+            android:textColor="@android:color/black"
+            android:textSize="10dip" />
+
+        <TextView
+            android:id="@+id/systemtuijian"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/shukanyishi"
+            android:layout_alignBottom="@+id/shukanyishi"
+            android:layout_alignLeft="@+id/advise"
+            android:gravity="center_horizontal"
+            android:text="系统推荐"
+            android:textColor="@android:color/black"
+            android:textSize="10dip" />
+
+        <TextView
+            android:id="@+id/booklend"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/personal"
+            android:layout_alignTop="@+id/imageButton4"
+            android:layout_marginTop="32dp"
+            android:gravity="center_horizontal"
+            android:text="图书预订"
+            android:textColor="@android:color/black"
+            android:textSize="10dip" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/search_div"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="59dp"
+        android:background="#e5e5e5"
+       >
+
+        <EditText
+            android:id="@+id/search_edit_username"
+            android:layout_width="280dp"
+            android:background="@drawable/search_frame"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35dp"
+            android:textSize="10sp"
+            android:inputType="text"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            >
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_marginRight="1dp"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="#646464"
+            android:text="搜索" />
+       
+    </RelativeLayout>
+
+
+</RelativeLayout>

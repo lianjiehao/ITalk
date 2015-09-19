@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="61dp"
+    android:background="#f8f8f8"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d8d6d6"
+        />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#f8f8f8"
+    android:orientation="horizontal" >
+    <LinearLayout
+        android:id="@+id/linearlayout_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imagebutton_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#f8f8f8"
+            android:src="@drawable/schoolfriend_nopress" />
+
+        <TextView
+            android:id="@+id/schoolfriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="同校"
+            android:textSize="11sp"
+            android:textColor="#929292" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imagebutton_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#f8f8f8"
+            android:src="@drawable/news_nopress" />
+
+        <TextView
+            android:id="@+id/chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:layout_gravity="center_horizontal"
+            android:text="聊天"
+            android:textColor="#929292" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/imagebutton_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#f8f8f8"
+            android:src="@drawable/find_nopress" />
+
+        <TextView
+            android:id="@+id/find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="发现"
+            android:textSize="11sp"
+            android:textColor="#929292" />
+    </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

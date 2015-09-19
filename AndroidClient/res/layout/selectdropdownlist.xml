@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_popup_window"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:alpha="0.99"
+    android:background="#e2dfdf"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/selectdropdownleft"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/selector_seacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/slelector_seacher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="筛选设置"
+            android:textSize="10sp" />
+         </LinearLayout>
+
+         <LinearLayout
+        	android:id="@+id/selectdropdownright"
+        	android:layout_width="50dp"
+        	android:layout_height="50dp"
+        	android:layout_marginLeft="100dp"
+        	android:gravity="center"
+       		android:orientation="vertical" >
+
+         <ImageView
+            android:id="@+id/selector_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="@drawable/slelector_view_grid"
+            android:background="@drawable/slelector_view_grid" />
+
+        <TextView
+            android:id="@+id/textdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="网格视图"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/kl"
+    android:orientation="vertical" >
+    <EditText 
+    android:id="@+id/bokname"  
+    android:layout_width="fill_parent"  
+    android:layout_height="wrap_content"  
+    android:inputType="text"
+    android:singleLine="true"  
+   
+/>  
+    <Button 
+        android:id="@+id/search"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:layout_gravity="right"  
+        android:text="查询"
+    />
+ 
+   "
+    <ListView 
+        android:id="@+id/android:list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@android:color/black" 
+        android:dividerHeight="2px"
+        
+     />
+</LinearLayout>

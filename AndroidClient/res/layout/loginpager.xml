@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbackgroud"
+    android:orientation="vertical" >
+
+        <com.stdu.edu.italk.rewritewidget.ClearEditText
+            android:id="@+id/usersname"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="143dp"
+            android:background="@null"
+            android:hint="学号"
+            android:paddingLeft="4dp"
+            android:singleLine="true"
+            android:textSize="15sp" />
+
+        <com.stdu.edu.italk.rewritewidget.ClearEditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+            android:hint="一卡通密码"
+            android:paddingLeft="4dp"
+            android:background="@null"
+            android:maxLength="12"
+            android:password="true"
+            android:singleLine="true"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="324dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/login_1" />
+<!--
+    <AbsoluteLayout
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp" >
+
+        <TextView
+            android:id="@+id/forgetpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记了密码？"
+            android:textColor="#048e7f"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="245dp"
+            android:text="注册"
+            android:textColor="#048e7f"
+            android:textSize="15sp" />
+    </AbsoluteLayout>
+  -->
+</LinearLayout>
