@@ -34,27 +34,31 @@ import com.stdu.edu.italk.resource.ChatMsgEntity;
  */
 public class ChatActivity extends Activity implements OnClickListener {
 
-	private Button mBtnSend;// ·¢ËÍbtn
-	private ImageButton mBtnBack;// ·µ»Øbtn
+	private Button mBtnSend;// å‘é€btn
+	private ImageButton mBtnBack;// è¿”å›btn
+	private ImageView touXiang;//å¤´åƒ
 	private EditText mEditTextContent;
 	private ListView mListView;
-	private ChatMsgViewAdapter mAdapter;// ÏûÏ¢ÊÓÍ¼µÄAdapter
-	private List<ChatMsgEntity> mDataArrays = new ArrayList<ChatMsgEntity>();// ÏûÏ¢¶ÔÏóÊı×é
+	private ChatMsgViewAdapter mAdapter;// æ¶ˆæ¯è§†å›¾çš„Adapter
+	private List<ChatMsgEntity> mDataArrays = new ArrayList<ChatMsgEntity>();// æ¶ˆæ¯å¯¹è±¡æ•°ç»„
 	private TextView title;
 	UserData data;
+	
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.chat);
-		initView();// ³õÊ¼»¯view
-		initData();// ³õÊ¼»¯Êı¾İ
+		initView();// åˆå§‹åŒ–view
+		initData();// åˆå§‹åŒ–æ•°æ®
 		mListView.setSelection(mAdapter.getCount() - 1);
 		registerBroadCast();
+		//æ˜¾ç¤ºæ¨¡ç³Šå¤´åƒ
+		//touXiang.setImageBitMap(blurBitmap(touXiang,getBlur()));
 	}
 
 	/**
-	 * ³õÊ¼»¯view
+	 * åˆå§‹åŒ–view
 	 */
 	public void initView() {
 		mListView = (ListView) findViewById(R.id.listview_chat);
@@ -64,10 +68,11 @@ public class ChatActivity extends Activity implements OnClickListener {
 		mBtnBack.setOnClickListener(this);
 		mEditTextContent = (EditText) findViewById(R.id.et_sendmessage);
 		title = (TextView) findViewById(R.id.chatTitles);
+		touXiang=(ImageView)findViewById(R.id.touxiang);
 	}
 	
 	
-	//¶¯Ì¬×¢²áÏûÏ¢ÕìÌı¹ã²¥
+	//åŠ¨æ€æ³¨å†Œæ¶ˆæ¯ä¾¦å¬å¹¿æ’­
 	void registerBroadCast(){
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction("italk.msgreflesh");
@@ -75,9 +80,9 @@ public class ChatActivity extends Activity implements OnClickListener {
 		registerReceiver(msgChangeReceiver, intentFilter);
 	}
 
-	private String[] msgArray = new String[] { "ÄãµÄÍ·ÏñÔõÃ´ÊÇÕâÑùÑ½£¡", "²»È»ÄØ£¿", "¹ş¹ş£¬ÎÒÒ²ÓĞ",
-			"Ïë¿´±¾Ğ¡½ã£¿~", "¶÷¶÷", "ºÃ£¬°ïÎÒ°Ñ½ñÌìµÄ¸ßÊı×öÁË°É", "ÄÉÄá~", "Äá¹ö...", "ÍíÉÏÓĞ¿ÕÃ´", "ÔõÃ´ÁË",
-			"ºÙºÙ£¬°ïÄã×ö¸ßÊıÑ½", "Å¶£¡£¡" };
+	private String[] msgArray = new String[] { "ä½ çš„å¤´åƒæ€ä¹ˆæ˜¯è¿™æ ·å‘€ï¼", "ä¸ç„¶å‘¢ï¼Ÿ", "å“ˆå“ˆï¼Œæˆ‘ä¹Ÿæœ‰",
+			"æƒ³çœ‹æœ¬å°å§ï¼Ÿ~", "æ©æ©", "å¥½ï¼Œå¸®æˆ‘æŠŠä»Šå¤©çš„é«˜æ•°åšäº†å§", "çº³å°¼~", "å°¼æ»š...", "æ™šä¸Šæœ‰ç©ºä¹ˆ", "æ€ä¹ˆäº†",
+			"å˜¿å˜¿ï¼Œå¸®ä½ åšé«˜æ•°å‘€", "å“¦ï¼ï¼" };
 
 	private String[] dataArray = new String[] { "2012-09-22 18:00:02",
 			"2012-09-22 18:10:22", "2012-09-22 18:11:24",
@@ -86,25 +91,25 @@ public class ChatActivity extends Activity implements OnClickListener {
 			"2012-09-22 18:50:26", "2012-09-22 18:52:57",
 			"2012-09-22 18:55:11", "2012-09-22 18:56:45",
 			"2012-09-22 18:57:33", };
-	private final static int COUNT = 12;// ³õÊ¼»¯Êı×é×ÜÊı
+	private final static int COUNT = 12;// åˆå§‹åŒ–æ•°ç»„æ€»æ•°
 
 	/**
-	 * ¼ÓÔØÏûÏ¢ÀúÊ·
+	 * åŠ è½½æ¶ˆæ¯å†å²
 	 */
 	public void initData() {
-		// ¸üĞÂ±êÌâ
+		// æ›´æ–°æ ‡é¢˜
 		Intent intent = getIntent();
 		String strName = intent.getStringExtra("name");
 		title.setText(strName);
 //		Toast.makeText(ChatActivity.this, intent.getStringExtra("loginName"), Toast.LENGTH_SHORT).show();
-		// ¸üĞÂlistview
+		// æ›´æ–°listview
 //		for (int i = 0; i < COUNT; i++) {
 //			ChatMsgEntity entity = new ChatMsgEntity();
 //			entity.setDate(dataArray[i]);
 //			if (i % 2 == 0) {
-//				entity.setMsgType(true);// ÊÕµ½µÄÏûÏ¢
+//				entity.setMsgType(true);// æ”¶åˆ°çš„æ¶ˆæ¯
 //			} else {
-//				entity.setMsgType(false);// ×Ô¼º·¢ËÍµÄÏûÏ¢
+//				entity.setMsgType(false);// è‡ªå·±å‘é€çš„æ¶ˆæ¯
 //			}
 //			entity.setMessage(msgArray[i]);
 //			mDataArrays.add(entity);
@@ -116,17 +121,17 @@ public class ChatActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_send:// ·¢ËÍ°´Å¥µã»÷ÊÂ¼ş
+		case R.id.btn_send:// å‘é€æŒ‰é’®ç‚¹å‡»äº‹ä»¶
 			send();
 			break;
-		case R.id.btn_back:// ·µ»Ø°´Å¥µã»÷ÊÂ¼ş
-			finish();// ½áÊø,Êµ¼Ê¿ª·¢ÖĞ£¬¿ÉÒÔ·µ»ØÖ÷½çÃæ
+		case R.id.btn_back:// è¿”å›æŒ‰é’®ç‚¹å‡»äº‹ä»¶
+			finish();// ç»“æŸ,å®é™…å¼€å‘ä¸­ï¼Œå¯ä»¥è¿”å›ä¸»ç•Œé¢
 			break;
 		}
 	}
 
 	/**
-	 * ·¢ËÍÏûÏ¢
+	 * å‘é€æ¶ˆæ¯
 	 */
 	private void send() {
 		SendToFriend send;
@@ -134,10 +139,10 @@ public class ChatActivity extends Activity implements OnClickListener {
 		data= (UserData) getApplication();
 		Intent intent=getIntent();
 		if (contString.length() > 0) {
-			// ·â×°jsonÊı¾İ£¬¸ñÊ½Îª:{"from":"value","to":"value","content":"value","time":"value"}
+			// å°è£…jsonæ•°æ®ï¼Œæ ¼å¼ä¸º:{"from":"value","to":"value","content":"value","time":"value"}
 			JSONObject mJSONObject = new JSONObject();
 			try {
-				//·¢ËÍjsonÊı¾İÖÁ·şÎñÆ÷
+				//å‘é€jsonæ•°æ®è‡³æœåŠ¡å™¨
 				mJSONObject.put("from", data.getUserName());
 				mJSONObject.put("to", intent.getStringExtra("loginName"));
 				mJSONObject.put("content", contString);
@@ -154,18 +159,18 @@ public class ChatActivity extends Activity implements OnClickListener {
 			entity.setMessage(contString);
 			entity.setMsgType(false);
 			mDataArrays.add(entity);
-			mAdapter.notifyDataSetChanged();// Í¨ÖªListView£¬Êı¾İÒÑ·¢Éú¸Ä±ä
+			mAdapter.notifyDataSetChanged();// é€šçŸ¥ListViewï¼Œæ•°æ®å·²å‘ç”Ÿæ”¹å˜
 
-			mEditTextContent.setText("");// Çå¿Õ±à¼­¿òÊı¾İ
+			mEditTextContent.setText("");// æ¸…ç©ºç¼–è¾‘æ¡†æ•°æ®
 
-			mListView.setSelection(mListView.getCount() - 1);// ·¢ËÍÒ»ÌõÏûÏ¢Ê±£¬ListViewÏÔÊ¾Ñ¡Ôñ×îºóÒ»Ïî
+			mListView.setSelection(mListView.getCount() - 1);// å‘é€ä¸€æ¡æ¶ˆæ¯æ—¶ï¼ŒListViewæ˜¾ç¤ºé€‰æ‹©æœ€åä¸€é¡¹
 		}
 	}
 
 	/**
-	 * ·¢ËÍÏûÏ¢Ê±£¬»ñÈ¡µ±Ç°ÊÂ¼ş
+	 * å‘é€æ¶ˆæ¯æ—¶ï¼Œè·å–å½“å‰äº‹ä»¶
 	 * 
-	 * @return µ±Ç°Ê±¼ä
+	 * @return å½“å‰æ—¶é—´
 	 */
 	private String getDate() {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -173,12 +178,12 @@ public class ChatActivity extends Activity implements OnClickListener {
 	}
 	
 	
-	//¼àÌıÏûÏ¢¹ã²¥
+	//ç›‘å¬æ¶ˆæ¯å¹¿æ’­
 	private class MsgChangeReceiver extends BroadcastReceiver{
 		JSONObject mJSONObject;
 		ChatMsgEntity entity;
 		
-		// »ñÈ¡Ä¿±êID
+		// è·å–ç›®æ ‡ID
 		public String getLoginName(){
 			Intent intent = getIntent();
 			String loginName = intent.getStringExtra("loginName");
@@ -200,12 +205,51 @@ public class ChatActivity extends Activity implements OnClickListener {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			//ÅĞ¶ÏÊÇ·ñ½«ÏûÏ¢ÏÔÊ¾ÔÚµ±Ç°Ò³Ãæ
+			//åˆ¤æ–­æ˜¯å¦å°†æ¶ˆæ¯æ˜¾ç¤ºåœ¨å½“å‰é¡µé¢
 			if(getLoginName().equals(loginName)){
 				mDataArrays.add(entity);
-				mAdapter.notifyDataSetChanged();// Í¨ÖªListView£¬Êı¾İÒÑ·¢Éú¸Ä±ä
-				mListView.setSelection(mListView.getCount() - 1);// ÊÕµ½Ò»ÌõÏûÏ¢Ê±£¬ListViewÏÔÊ¾Ñ¡Ôñ×îºóÒ»Ïî
+				mAdapter.notifyDataSetChanged();// é€šçŸ¥ListViewï¼Œæ•°æ®å·²å‘ç”Ÿæ”¹å˜
+				mListView.setSelection(mListView.getCount() - 1);// æ”¶åˆ°ä¸€æ¡æ¶ˆæ¯æ—¶ï¼ŒListViewæ˜¾ç¤ºé€‰æ‹©æœ€åä¸€é¡¹
+				// æ›´æ–°æ•°æ®åº“ä¸­çš„æ¨¡ç³Šå€¼
+				//updateBlur();
+			
 			}
 		}
 	}
+	
+	// //å›¾åƒæ¨¡ç³Šå¤„ç†
+	// public Bitmap blurBitmap(Bitmap bitmap,float radius){
+		
+	// 	//åˆ›å»ºä¸€ä¸ªæ‹¥æœ‰ç›¸åŒå°ºå¯¸çš„å›¾åƒç”¨äºæ¨¡ç³Š
+	// 	Bitmap outBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Config.ARGB_8888);
+		
+	// 	//åˆå§‹åŒ– Renderscript
+	// 	RenderScript rs = RenderScript.create(getApplicationContext());
+		
+	// 	//åˆ›å»ºIntrinsic Blurè„šæœ¬
+	// 	ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
+		
+	// 	//åˆ›å»ºè¾“å…¥è¾“å‡ºå›¾åƒ
+	// 	Allocation allIn = Allocation.createFromBitmap(rs, bitmap);
+	// 	Allocation allOut = Allocation.createFromBitmap(rs, outBitmap);
+		
+	// 	//è®¾ç½®æ¨¡ç³Šåº¦
+	// 	blurScript.setRadius(radius);
+		
+	// 	//æ‰§è¡ŒRenderscript
+	// 	blurScript.setInput(allIn);
+	// 	blurScript.forEach(allOut);
+		
+	// 	//å°†æœ€ç»ˆæ¨¡ç³Šå›¾åƒå¤åˆ¶å…¥outbitmapä¸­
+	// 	allOut.copyTo(outBitmap);
+		
+	// 	//å›æ”¶bitmap
+	// 	bitmap.recycle();
+		
+	// 	//é”€æ¯Renderscript.
+	// 	rs.destroy();
+		
+	// 	return outBitmap;
+		
+	// }
 }
