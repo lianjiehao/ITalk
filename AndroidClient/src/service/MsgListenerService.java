@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 
 /**
- * ������Ϣ����
+ * ÕìÌýÏûÏ¢·þÎñ
  * @author tangxianming
  *
  */
@@ -50,6 +50,10 @@ public class MsgListenerService extends Service {
 						Log.d("MyService", "------"+msg+"--------");
 						Intent intent = new Intent("italk.msgreflesh");
 						intent.putExtra("jsonMsg", msg.toString());
+						/**
+						 * 数据库中将图像模糊值增加
+						 * intent.putExtra("jsonblur", radius);
+						 **/
 						sendBroadcast(intent);
 					}
 				} catch (UnknownHostException e1) {
@@ -61,5 +65,7 @@ public class MsgListenerService extends Service {
 		}).start();
 
 	}
+	
+
 
 }
